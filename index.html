@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BANGTAN HQ — The ARMY Home</title>
+<style>
+:root{--bg:#fcfbff;--lav:#f0ebfa;--lav2:#e5dcf5;--ink:#27232d;--muted:#746d7d;--line:#e8e2ef;--white:#fff;--accent:#8067a8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+nav{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;letter-spacing:.08em}.logo span{color:var(--accent)}.navlinks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.navlinks button{border:0;background:transparent;padding:8px 11px;border-radius:12px;color:var(--muted);cursor:pointer}.navlinks button:hover,.navlinks button.active{background:var(--lav);color:var(--ink)}
+main{max-width:1100px;margin:auto;padding:34px 20px 70px}.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(135deg,#fff,var(--lav));border:1px solid var(--line);border-radius:30px;padding:58px 7%;margin-bottom:22px}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(38px,7vw,72px);line-height:1;margin:12px 0}.hero p{max-width:650px;color:var(--muted);font-size:17px}
+.btn{border:0;border-radius:14px;padding:11px 16px;background:var(--ink);color:#fff;cursor:pointer;font-weight:700}.btn.alt{background:var(--lav2);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px}.card h3{margin:7px 0}.muted{color:var(--muted)}.tag{display:inline-block;background:var(--lav);border-radius:999px;padding:5px 9px;margin:3px;font-size:12px}
+.sectionhead{margin:30px 0 14px}.sectionhead h2{margin:0;font-size:28px}.member{min-height:190px}.avatar{font-size:34px}.tool{min-height:190px}.timeline{border-left:2px solid var(--lav2);padding-left:20px}.timeline article{margin:0 0 18px}.quote{background:var(--lav);border-radius:18px;padding:18px;font-weight:700}
+input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:5px 0 12px;color:var(--ink)}
+footer{text-align:center;color:var(--muted);padding:30px 10px;border-top:1px solid var(--line)}
+@media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.navlinks{justify-content:flex-start;overflow:auto;width:100%;flex-wrap:nowrap}.navlinks button{white-space:nowrap}.grid{grid-template-columns:1fr 1fr}.hero{padding:40px 25px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}main{padding:22px 14px 55px}.hero{border-radius:22px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">BANGTAN <span>HQ</span></div><div class="navlinks">
+<button onclick="show('home')" class="active">Home</button><button onclick="show('bts')">BTS</button><button onclick="show('tools')">ARMY Tools</button><button onclick="show('explore')">Explore</button><button onclick="show('magic')">Magic Shop</button><button onclick="show('army')">My ARMY</button>
+</div></nav>
+<main>
+<section id="home" class="page active">
+<div class="hero"><div class="eyebrow">The ARMY Home</div><h1>Welcome to<br>BANGTAN HQ.</h1><p>A little home for ARMY — discover the seven members, explore eras and lore, learn streaming and voting basics, and make your own ARMY ID.</p><button class="btn" onclick="show('bts')">Explore BTS →</button></div>
+<div class="sectionhead"><h2>Quick access</h2></div><div class="grid">
+<div class="card"><span class="tag">BTS</span><h3>Meet the 7</h3><p class="muted">Member cards, music and eras.</p><button class="btn alt" onclick="show('bts')">Open</button></div>
+<div class="card"><span class="tag">ARMY TOOLS</span><h3>Stream · Vote · Track</h3><p class="muted">Simple guides for ARMY activities.</p><button class="btn alt" onclick="show('tools')">Open</button></div>
+<div class="card"><span class="tag">EXPLORE</span><h3>Quiz & HYYH</h3><p class="muted">Games, timeline and lore.</p><button class="btn alt" onclick="show('explore')">Open</button></div>
+</div>
+<div class="sectionhead"><h2>BTS Today</h2></div><div class="card"><h3>💜 Your HQ dashboard</h3><p class="muted">This is your fan-made space. Add current updates, comeback notes, charts or countdowns here as you build the site.</p></div>
+</section>
+<section id="bts" class="page"><div class="sectionhead"><h2>💜 BTS</h2><p class="muted">Seven members. One story. Explore at your own pace.</p></div>
+<div id="members" class="grid"></div>
+<div class="sectionhead"><h2>Discography & eras</h2></div><div id="eras" class="grid"></div></section>
+<section id="tools" class="page"><div class="sectionhead"><h2>🎧 ARMY Tools</h2><p class="muted">Helpful guides, kept simple.</p></div><div id="toolsGrid" class="grid"></div></section>
+<section id="explore" class="page"><div class="sectionhead"><h2>🧩 Explore</h2><p class="muted">A small corner for games, memories and lore.</p></div>
+<div class="grid"><div class="card"><h3>ARMY mini quiz</h3><p>Which member is known for the nickname “Worldwide Handsome”?</p><button class="btn" onclick="alert('Jin! 🐹')">Answer</button></div>
+<div class="card"><h3>Random member</h3><p class="muted">Need a member to explore?</p><button class="btn" onclick="randomMember()">Pick one</button><p id="pick" class="quote" style="display:none"></p></div>
+<div class="card"><h3>Lyrics & quotes</h3><p class="quote">“You got me. I dream while looking at you.”</p><small class="muted">Keep quotes short and add your own source notes when expanding this section.</small></div></div>
+<div class="sectionhead"><h2>🕰️ BTS timeline</h2></div><div id="timeline" class="card timeline"></div>
+<div class="sectionhead"><h2>📖 HYYH / lore</h2></div><div class="card"><p>The HYYH universe connects music videos, short films, notes and recurring characters and themes. Treat fan theories as theories, and separate them from details explicitly shown in official material.</p></div>
+</section>
+<section id="magic" class="page"><div class="hero"><div class="eyebrow">A place to breathe</div><h1>🪄 Magic Shop</h1><p>Whenever you need a tiny BTS-shaped pause, open this page.</p><button class="btn" onclick="comfort()">Give me a message</button></div><div id="comfort" class="card quote">Your message is waiting here. 💜</div>
+<div class="sectionhead"><h2>🎶 Song picker</h2></div><div class="card"><button class="btn alt" onclick="song()">Pick a song</button><p id="song" class="quote"></p></div></section>
+<section id="army" class="page"><div class="sectionhead"><h2>🪪 My ARMY</h2><p class="muted">Make a tiny profile for your own corner of HQ.</p></div><div class="card">
+<label>ARMY name</label><input id="aname" placeholder="Your name"><label>Bias</label><select id="bias"><option>RM</option><option>Jin</option><option>SUGA</option><option>j-hope</option><option>Jimin</option><option>V</option><option>Jung Kook</option><option>OT7</option></select>
+<label>Favorite song</label><input id="asong" placeholder="Your favorite BTS song"><label>Favorite era</label><input id="aera" placeholder="Your favorite era">
+<button class="btn" onclick="makeID()">Create my ARMY ID</button><div id="armyid" class="quote" style="margin-top:16px"></div></div>
+<div class="sectionhead"><h2>💜 BTS bucket list</h2></div><div class="card" id="bucket"></div></section>
+</main><footer>Made with 💜 for ARMY · BANGTAN HQ is a fan-made project.</footer>
+<script>
+const members=[['RM','Kim Namjoon','🐨'],['Jin','Kim Seokjin','🐹'],['SUGA','Min Yoongi','🐱'],['j-hope','Jung Hoseok','🐿️'],['Jimin','Park Jimin','🐥'],['V','Kim Taehyung','🐻'],['Jung Kook','Jeon Jungkook','🐰']];
+document.getElementById('members').innerHTML=members.map(x=>'<div class="card member"><div class="avatar">'+x[2]+'</div><h3>'+x[0]+'</h3><p class="muted">'+x[1]+'</p><span class="tag">Member</span><span class="tag">Explore</span></div>').join('');
+const eras=['2 COOL 4 SKOOL · 2013','DARK & WILD · 2014','The most beautiful moment in life · 2015–16','WINGS · 2016','LOVE YOURSELF · 2017–18','MAP OF THE SOUL · 2019–20','BE · 2020'];
+document.getElementById('eras').innerHTML=eras.map(x=>'<div class="card"><h3>'+x+'</h3><p class="muted">Explore the music, visuals, themes and memories from this chapter.</p></div>').join('');
+const tools=[['🗳️','Voting Guide','Learn how official voting works, where to find verified notices, and how to avoid suspicious links.'],['🎵','Streaming Guide','Learn healthy, platform-compliant streaming basics without spam or automation.'],['📻','Last.fm Guide','Connect your music service, scrobble BTS tracks and explore your listening history.'],['📊','stats.fm Guide','Understand your listening statistics, top tracks and artist data.'],['💿','B-CD Guide','A fan guide to checking BTS-related releases, editions and collection details.']];
+document.getElementById('toolsGrid').innerHTML=tools.map(x=>'<div class="card tool"><div class="avatar">'+x[0]+'</div><h3>'+x[1]+'</h3><p class="muted">'+x[2]+'</p><button class="btn alt" onclick="alert(\'Guide section ready — add your verified resources here!\')">Open guide</button></div>').join('');
+document.getElementById('timeline').innerHTML=['2013 — BTS debut','2015 — HYYH era begins','2016 — WINGS','2017 — LOVE YOURSELF era begins','2018 — Love Yourself: Answer','2019 — MAP OF THE SOUL: PERSONA','2020 — Dynamite & BE','2021 — Butter & Permission to Dance'].map(x=>'<article><strong>'+x+'</strong><div class="muted">Add your favorite memory from this chapter.</div></article>').join('');
+document.getElementById('bucket').innerHTML=['Listen to a full BTS album','Learn a BTS choreography','Write a BTS diary page','Watch a BTS concert film','Discover one new B-side'].map(x=>'<label style="display:block;margin:10px 0"><input type="checkbox" style="width:auto;margin-right:8px"> '+x+'</label>').join('');
+function show(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.navlinks button').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase().replace(' ','')===id));location.hash=id;scrollTo(0,0)}
+const memberNames=['RM 🐨','Jin 🐹','SUGA 🐱','j-hope 🐿️','Jimin 🐥','V 🐻','Jung Kook 🐰'];
+function randomMember(){let x=memberNames[Math.floor(Math.random()*memberNames.length)],p=document.getElementById('pick');p.style.display='block';p.textContent='Today, explore: '+x+' 💜'}
+const messages=['You are doing better than you think. 💜','Take a breath. You do not have to do everything today.','Your little efforts still count.','Rest is allowed. Come back when you are ready.'];
+function comfort(){document.getElementById('comfort').textContent=messages[Math.floor(Math.random()*messages.length)]}
+const songs=['Spring Day','Magic Shop','Still With You','Life Goes On','00:00 (Zero O’Clock)','Answer: Love Myself','Mikrokosmos'];
+function song(){document.getElementById('song').textContent='Try: '+songs[Math.floor(Math.random()*songs.length)]+' 🎧'}
+function makeID(){let n=document.getElementById('aname').value.trim()||'ARMY',b=document.getElementById('bias').value;document.getElementById('armyid').textContent='ARMY ID · '+n+' · '+b+' · HQ-'+Math.floor(1000+Math.random()*9000)}
+if(location.hash){let id=location.hash.slice(1);if(document.getElementById(id))show(id)}
+</script></body></html>
